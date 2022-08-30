@@ -33,7 +33,7 @@ function fetchContributors(data) {
 }
 
 function normalizeNames(contributor) {
-    var name = contributor.name != null ? '<strong>Name:</strong> '+contributor.name +'<br /><br />' : '';
+    var name = contributor.name !== null ? '<strong>Name:</strong> '+contributor.name +'<br /><br />' : '';
     var description = contributor.description ? '<strong>Description:</strong> '+contributor.description+'<br /><br />' : '';
     var website = '<strong>Webste:</strong> '+normalizeWebsite(contributor.website)+ '<br /><br />';
     var country = contributor.country.name ? '<strong>Country:</strong> '+contributor.country.name+'<br /><br />' : '';

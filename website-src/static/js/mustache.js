@@ -61,7 +61,7 @@ var Mustache = (typeof module !== "undefined" && module.exports) || {};
   var trim;
   if (_trim) {
     trim = function (string) {
-      return string == null ? "" : _trim.call(string);
+      return string === null ? "" : _trim.call(string);
     };
   } else {
     var trimLeft, trimRight;
@@ -76,7 +76,7 @@ var Mustache = (typeof module !== "undefined" && module.exports) || {};
     }
 
     trim = function (string) {
-      return string == null ? "" :
+      return string === null ? "" :
         String(string).replace(trimLeft, "").replace(trimRight, "");
     };
   }
@@ -142,7 +142,7 @@ var Mustache = (typeof module !== "undefined" && module.exports) || {};
       while (j < lastIndex) {
         context = context[names[j++]];
 
-        if (context == null) {
+        if (context === null) {
           break;
         }
 
@@ -160,7 +160,7 @@ var Mustache = (typeof module !== "undefined" && module.exports) || {};
       value = value.call(localStack[localStack.length - 1]);
     }
 
-    if (value == null)  {
+    if (value === null)  {
       return defaultValue;
     }
 
@@ -175,7 +175,7 @@ var Mustache = (typeof module !== "undefined" && module.exports) || {};
       // From the spec: inverted sections may render text once based on the
       // inverse value of the key. That is, they will be rendered if the key
       // doesn't exist, is false, or is an empty list.
-      if (value == null || value === false || (isArray(value) && value.length === 0)) {
+      if (value === null || value === false || (isArray(value) && value.length === 0)) {
         buffer += callback();
       }
     } else if (isArray(value)) {
